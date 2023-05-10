@@ -10,7 +10,13 @@ jobs:
         uses: actions/checkout@v3
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
-      - name: Cypress run
+      - name: Cypress run Test
         uses: cypress-io/github-action@v5
         with:
           browser: chrome
+      
+      - name: Guardando video con evidencia
+        uses: actions/upload-artifact@v3
+        with:
+          name: Video-${{github.run_number}}
+          path: cypress/videos
